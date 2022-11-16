@@ -5,12 +5,14 @@ import numpy as np
 
 import pandas as pd
 from route.user import user
+from route.doctor import doctor
 import uvicorn
 
 
 
 app = FastAPI()
 app.include_router(user)
+app.include_router(doctor)
 
 
 

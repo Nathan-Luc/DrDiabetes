@@ -12,3 +12,13 @@ class User(BaseModel):
     pregnancies: int
     skin_thickness: float
     weight: float
+
+class Patient(BaseModel):
+    f_name: str
+    l_name: str
+    id: int
+
+class Doctor(BaseModel):
+    f_name: str
+    l_name: str
+    id: int
