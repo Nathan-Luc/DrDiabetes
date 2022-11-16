@@ -8,7 +8,7 @@ def userEntity(item) -> dict:
         "insulin": item["insulin"],
         "name": item["name"],
         "pedigree": item["pedigree"],
-        "pregancies": item["pregancies"],
+        "pregnancies": item["pregnancies"],
         "skin_thickness": item["skin_thickness"],
         "weight": item["weight"]
     }

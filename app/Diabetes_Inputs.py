@@ -8,6 +8,6 @@ class user_input(BaseModel):
     height: float
     insulin: float
     pedigree: float
-    pregancies: int
+    pregnancies: int
     skin_thickness: float
     weight: float

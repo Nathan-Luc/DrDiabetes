@@ -9,6 +9,6 @@ class User(BaseModel):
     insulin: float
     name: str
     pedigree: float
-    pregancies: int
+    pregnancies: int
     skin_thickness: float
     weight: float
