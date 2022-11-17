@@ -72,6 +72,7 @@ async def add_record(bp: float, glucose: float, height: float, insulin: float, p
         "weight": weight
     }
     return await create_records(sample_record)
+
 if __name__ == '__main__':
     uvicorn.run(app, host='127.0.0.1', port=8000)
 
