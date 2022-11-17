@@ -13,6 +13,9 @@ async def find_all_patients():
 async def find_patient(id):
     return serializeDict(conn.local.patient.find_one({"_id":ObjectId(id)}))
 
+async def find_most_recent_patient():
+    return serializeList(conn.local.patient.find().limit(1).sort("_id",-1))
+
 async def create_patient(patient:Patient):
     conn.local.patient.insert_one(dict(patient))
     return serializeList(conn.local.patient.find()) 

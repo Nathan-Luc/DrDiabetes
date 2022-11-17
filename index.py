@@ -5,7 +5,7 @@ import pandas as pd
 from app.formula import predict_diabetes
 from config.db import conn
 import uvicorn
-from route.user import (
+from route.record import (
     record,
     find_record,
     find_all_records,
@@ -25,6 +25,7 @@ from route.patient import (
     patient,
     find_patient,
     find_all_patients,
+    find_most_recent_patient,
     create_patient,
     update_patient,
     delete_patient,
@@ -72,6 +73,12 @@ async def add_record(bp: float, glucose: float, height: float, insulin: float, p
         "weight": weight
     }
     return await create_records(sample_record)
+
+@app.post('/create_patient_record')
+async def create_patient_record(fname: str, lname: str, DOB: int, gender: bool, family_diabetic: int, d_id: int, blood_pressure: float, glucose: float, height: float, insulin: float, pedigree: float, pregnancies:int, skin_thickness: float, weight: float):
+    await add_patient(fname,lname,DOB, gender, family_diabetic, d_id)
+    patient_id = await find_most_recent_patient()
+    return await add_record(blood_pressure,glucose,height,insulin,pedigree, pregnancies,patient_id[0]["_id"],skin_thickness,weight)
 if __name__ == '__main__':
     uvicorn.run(app, host='127.0.0.1', port=8000)
 
