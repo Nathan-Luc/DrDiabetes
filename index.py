@@ -79,6 +79,7 @@ async def create_patient_record(fname: str, lname: str, DOB: int, gender: bool, 
     await add_patient(fname,lname,DOB, gender, family_diabetic, d_id)
     patient_id = await find_most_recent_patient()
     return await add_record(blood_pressure,glucose,height,insulin,pedigree, pregnancies,patient_id[0]["_id"],skin_thickness,weight)
+
 if __name__ == '__main__':
     uvicorn.run(app, host='127.0.0.1', port=8000)
 

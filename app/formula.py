@@ -54,7 +54,7 @@ def predict_diabetes(patient):
     insulin = patient['insulin']
     pregnancies = patient['pregnancies']
     skin_thickness = patient['skin_thickness']
-    predigree = patient['pedigree']
+    predigree = get_default_pedigree(age)
 
     prediction = model.predict([[pregnancies,glucose,blood_pressure,skin_thickness,insulin,bmi,predigree,age]])
     
